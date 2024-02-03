@@ -17,7 +17,7 @@ public class Car {
     private LocalDate releaseDate;
     private String model;
     private String color;
-    private String kilometers;
+    private Double kilometers;
     private Double price;
 
 
@@ -61,11 +61,11 @@ public class Car {
         this.color = color;
     }
 
-    public String getKilometers() {
+    public Double getKilometers() {
         return kilometers;
     }
 
-    public void setKilometers(String kilometers) {
+    public void setKilometers(Double kilometers) {
         this.kilometers = kilometers;
     }
 

@@ -28,19 +28,19 @@ public class CarResource {
     @GET
     @Path("/{id}")
     public CarDTO getCarById(@RestPath Long id) {
-        return carService.findById(id);
+        return carService.findById(id).orElseThrow( () -> new NotFoundException("Car not found"));
     }
 
     @PUT
     @Path("/{id}")
-    public void updateCar(@RestPath Long id, Car car) {
-        carService.update(car);
+    public void updateCar(@RestPath Long id, CarDTO car) {
+        carService.update(id,car);
     }
 
     @POST
     @Consumes("application/json")
     public Response createCar(CarDTO car) {
-        carService.create(Car.fromDTO(car));
+        carService.create(car);
         return Response.ok().status(201).build();
     }
 

@@ -27,9 +27,9 @@ class CarsResourceIT extends CarsTest {
         given()
                 .when()
                 .body("{\n" +
-                        "\t\"brand\":\"Opel\",\n" +
+                        "\t\"brand\":\"VOLKSWAGEN\",\n" +
                         "    \"releaseDate\":\"2021-01-01\",\n" +
-                        "    \"model\":\"Astra\",\n" +
+                        "    \"model\":\"Polo\",\n" +
                         "    \"color\":\"Red\",\n" +
                         "    \"kilometers\":\"1234\",\n" +
                         "    \"price\":12000\n" +
@@ -48,7 +48,7 @@ class CarsResourceIT extends CarsTest {
           .when().get("/cars/1")
           .then()
              .statusCode(200)
-             .body(is("{\"brand\":\"Opel\",\"releaseDate\":\"2021-01-01\",\"model\":\"Astra\",\"color\":\"Red\",\"kilometers\":\"1234\",\"price\":12000.0}"));
+             .body(is("{\"brand\":\"VOLKSWAGEN\",\"releaseDate\":\"2021-01-01\",\"model\":\"Polo\",\"color\":\"Red\",\"kilometers\":1234.0,\"price\":12000.0}"));
     }
 
     @Test
@@ -57,7 +57,7 @@ class CarsResourceIT extends CarsTest {
         given()
           .when().get("/cars/2")
           .then()
-             .statusCode(204);
+             .statusCode(404);
     }
 
 
