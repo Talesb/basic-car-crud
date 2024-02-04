@@ -54,14 +54,19 @@ public class CarService {
 
     public void update(Long id, CarDTO car) {
         applyValidations(car);
-        Car carToUpdate = this.carRepository.findById(id);
-        carToUpdate.setBrand(car.getBrand());
-        carToUpdate.setKilometers(car.getKilometers());
-        carToUpdate.setColor(car.getColor());
-        carToUpdate.setModel(car.getModel());
-        carToUpdate.setPrice(car.getPrice());
-        carToUpdate.setReleaseDate(car.getReleaseDate());
-        carRepository.persist(carToUpdate);
+        Optional<Car> carToUpdate = this.carRepository.findByIdOptional(id);
+
+        if (carToUpdate.isEmpty()) {
+            throw new BusinessException("Car not found");
+        }
+
+        carToUpdate.get().setBrand(car.getBrand());
+        carToUpdate.get().setKilometers(car.getKilometers());
+        carToUpdate.get().setColor(car.getColor());
+        carToUpdate.get().setModel(car.getModel());
+        carToUpdate.get().setPrice(car.getPrice());
+        carToUpdate.get().setReleaseDate(car.getReleaseDate());
+        carRepository.persist(carToUpdate.get());
     }
 
     public void delete(Long id) {

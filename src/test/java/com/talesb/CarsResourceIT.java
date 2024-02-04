@@ -1,5 +1,6 @@
 package com.talesb;
 
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -8,6 +9,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.is;
 
 @QuarkusIntegrationTest
+@QuarkusTestResource(CarsTestItLifecycleManager.class)
 class CarsResourceIT extends CarsTest {
 
 

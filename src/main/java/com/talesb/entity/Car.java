@@ -20,6 +20,19 @@ public class Car {
     private Double kilometers;
     private Double price;
 
+    public Car() {
+    }
+
+    public Car(Long id, String brand, LocalDate releaseDate, String model, String color, Double kilometers, Double price) {
+        this.id = id;
+        this.brand = brand;
+        this.releaseDate = releaseDate;
+        this.model = model;
+        this.color = color;
+        this.kilometers = kilometers;
+        this.price = price;
+    }
+
 
     public Long getId() {
         return id;

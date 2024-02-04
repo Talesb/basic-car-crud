@@ -11,6 +11,19 @@ public class CarDTO {
     private Double kilometers;
     private Double price;
 
+
+    public CarDTO() {
+    }
+
+    public CarDTO(String brand, LocalDate releaseDate, String model, String color, Double kilometers, Double price) {
+        this.brand = brand;
+        this.releaseDate = releaseDate;
+        this.model = model;
+        this.color = color;
+        this.kilometers = kilometers;
+        this.price = price;
+    }
+
     public String getBrand() {
         return brand;
     }
